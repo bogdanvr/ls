@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load tags %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_1.css' %}" />
+{% endblock %}
+
+
+{% block main %}
+<!--main-slider-->
+<section id="main-slider" class="carousel">
+  <div class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active" style="background-image: url({% static "images/slide1.jpg" %})">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel-content text-center">
+                <h1 class="animation animated-item-4"><strong>Тонировка авто </strong> лучшие бренды</h1>
+                <br>
+                <h2 class="animation animated-item-5">по отличной цене</h2>
+                <br>
+                <a class="btn-slide animation animated-item-1" href="/servicedetail/1">Подробнее</a> <a class="active btn-slide animation animated-item-1" href="{% url "contact" %}">Заказать сейчас</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.item-->
+      
+      <div class="item" style="background-image: url({% static "images/slide3.jpg" %})">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel-content text-center">
+                <h1 class="animation animated-item-4">ПЕРЕШИВ САЛОНА</h1>
+                <br>
+                <h2 class="animation animated-item-5">ВАМ НЕ ЗАХОЧЕТСЯ ЕГО ПОКИДАТЬ</h2>
+                <br>
+                <a class="btn-slide animation animated-item-1" href="/servicedetail/8">Подробнее</a> <a class="active btn-slide animation animated-item-1" href="{% url "contact" %}">Заказать сейчас</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.item-->
+      
+      <div class="item" style="background-image: url({% static "images/slide4.jpg" %})">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel-content text-center">
+                <h1 class="animation animated-item-4"><strong>АВТОМАЛЯРНЫЕ РАБОТЫ </h1>
+                <br>
+                <h2 class="animation animated-item-5">ГАРАНТИЯ НА ПОКРЫТИЕ</h2>
+                <br>
+                <a class="btn-slide animation animated-item-1" href="/servicedetail/6">Подробнее</a> <a class="active btn-slide animation animated-item-1" href="{% url "contact" %}">Заказать сейчас</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <!--/.item--> 
+    </div>
+    <!--/.carousel-inner--> 
+  </div>
+  <!--/.carousel--> 
+  <a class="prev hidden-xs" href="#main-slider" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next hidden-xs" href="#main-slider" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> 
+  </section>
+<!--/#main-slider--> 
+
+<!--About-Us-->
+<section class="dark pading">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="about-us-box wow fadeInDown">
+          <h2>О нас и наших преимуществах</h2>
+          <p>Автотехцентр кузовного ремонта и тюнинга. Профессиональный подход и многолетний опыт - гарантия отличного результата.</p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="about-us-post"> <a href="#"><i class="fa fa-magic""></i></a>
+                <h4>Точно в цвет</h4>
+                <span></span> </div>
+              <div class="about-us-post"> <a href="#"><i class="fa fa-clock-o"></i></a>
+                <h4>Точно в срок</h4>
+                <span></span> </div>
+              <div class="about-us-post"> <a href="#"><i class="fa fa-check-square"></i></a>
+                <h4>Гарантия на покрытие</h4>
+                <span></span> </div>
+            </div>
+            <div class="col-md-6">
+              <div class="about-us-post"> <a href="#"><i class="fa fa-thumbs-o-up"></i></a>
+                <h4>Профессиональные материалы</h4>
+                <span></span> </div>
+              <div class="about-us-post"> <a href="#"><i class="fa fa-calendar"></i></a>
+                <h4>8 лет на рынке</h4>
+                <span></span> </div>
+              <div class="about-us-post"> <a href="#"><i class="fa fa-users"></i></a>
+                <h4>1000 довольных клиентов</h4>
+                <span></span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="about-box wow fadeInDown"> <img alt="about-us" src="{% static "images/about.jpg" %}" class="img-responsive">
+          <h2>Кто мы</h2><br/>
+          <p>МЫ ДЕЛАЕМ ВАШУ ЖИЗНЬ ЯРЧЕ.</p>
+          <p>Автомобиль постоянный спутник в современной жизни. Наша работа - сделать Вашу жизнь более комфортной, насыщенной и яркой.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/#about-us--> 
+
+<!--services-->
+<section id="Services" class="pading">
+  <div class="container">
+    <div class="row wow fadeInDown margin">
+      <div class="col-md-3">
+        <h2>Наши услуги</h2>
+      </div>
+      <div class="col-md-9">
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      
+      
+      {% for object in main %}
+       <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <div class="team-member text-center wow fadeInUp animated" data-wow-duration="500ms">
+            <div class="member-thumb"> <img src="{{object.image.url}}" alt="Team Member" class="img-responsive">
+              <div class="overlay2">
+                <h3>{{object.name}}</h3>
+                <p>{{object.text}}</p>
+                <a class="btn-icon" href="/servicedetail/{{object.id}}/">Перейти <i class="fa fa-angle-double-right"></i></a> </div>
+              <div class="img-bg">{{object.name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {% endfor %}
+      
+    </div>
+    <!--/.row--> 
+  </div>
+  <!--/.container--> 
+</section>
+<!--/#services--> 
+
+
+
+<!--Our-Portfolio-->
+<section id="our-work" class="pading">
+  <div class="container">
+    <div class="row margin">
+      <div class="col-md-4 col-sm-5 wow fadeInDown">
+        <h2>Наши работы</h2>
+      </div>
+      <div class="col-md-8 col-sm-7">
+        <hr>
+      </div>
+    </div>
+    <div class="work-filter">
+      <ul id="filters" class="clearfix wow fadeInDown">
+      	<li><span class="filter active" data-filter="{% for z in main %} {{z.name}} {%endfor%} ">Все услуги</span></li>
+		 {% for i in main %}
+        	<li><span class="filter active" data-filter="{{i.name}}">{{i.name}}</span></li>
+         {% endfor %}
+      </ul>
+      <div id="portfoliolist">
+        
+        {% ourwork %}
+      </div>
+      
+   
+    </div>
+  </div>
+</section>
+<!--/#Our-Portfolio--> 
+
+<!--News-->
+<section id="news" class="pading">
+  <div class="container">
+    <div class="row margin wow fadeInDown">
+      <div class="col-md-4 col-sm-8">
+        <h2>Из блога</h2>
+      </div>
+      <div class="col-md-8 col-sm-7">
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      {%  blog_index %}
+ 
+    </div>
+  </div>
+</section>
+<!--/#News--> 
+
+
+
+
+{% endblock %}

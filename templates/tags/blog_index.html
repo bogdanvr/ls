@@ -1,0 +1,14 @@
+{% for i in data %}
+<div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="news_inner">
+          <figure> <img src="{{i.image.url}}" alt="news image"  class="img-responsive"/>
+            <div class="news_text">
+              <h3>{{i.name}}</h3>
+              <p>{{i.short_text}}</p>
+            </div>
+            <div class="news_btn"><a href="{% url "blog_detail" pk=i.pk %}" class="btn-icon">Читать полностью > ></a></div>
+          </figure>
+        </div>
+
+ </div>
+{% endfor %}

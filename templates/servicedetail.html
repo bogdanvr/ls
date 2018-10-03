@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load tags %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_1.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/service.css' %}" />
+{% endblock %}
+
+{% block main %}
+<section class="about-us">
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="text-uppercase mt-0 text-theme-colored">{{name_context.header}}</h2>
+          <br /><br />
+          <p class="content_service">{{name_context.text}}</p>
+          <p class="content_service">{{name_context.text2}}</p>
+          <a href="{% url 'contact' %}" class="btn-theme-colored">Заказать</a> </div>
+        <div class="col-md-6">
+          <div class="row mb-10">
+            <div class="col-md-12"> <img class="img-fullwidth" src="{{name_context.image.url}}" alt=""> </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-5 pr-sm-15 mb-sm-10"> <img class="img-fullwidth" src="{{name_context.image2.url}}" alt=""> </div>
+            <div class="col-md-6 pl-5 pl-sm-15"> <img class="img-fullwidth" src="{{name_context.image3.url}}" alt=""> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--========================================== SERVICES ============================================-->
+{% if name_context.id == 1 %}
+
+{% subservice_tag %}
+
+{% endif %}
+
+<!--========================================== OURWORK ============================================-->
+
+
+
+
+<section id="our-work2" class="pading">
+  <div class="container">
+    <div class="row margin">
+      <div class="col-md-4 col-sm-5 wow fadeInDown">
+        <h2>Выполненные работы</h2>
+      </div>
+      <div class="col-md-8 col-sm-7">
+        <hr>
+      </div>
+    </div>
+    <div class="work-filter">
+      
+      <div id="portfoliolist">
+        
+         {% for i in context_filter %}
+     <div class="portfolio {{i.name}}" data-cat="work4">
+          <div class="portfolio-wrapper gallery-wrap">
+            <div class="our-work-item">
+              <h3 class="heading-overlay">{{i.text}}</h3>
+              <div class="photo-thumb"> <img src="{{i.image.url}}" alt="{{i.alt}}"> </div>
+              <div class="our-work-overlay"> <span class="icon-overlay"> <a class="fancybox" href="{{i.image.url}}" data-fancybox-group="gallery" title="{{i.alt}}"><i class="fa fa-search-plus"></i></a> </span> </div>
+            </div>
+          </div>
+        </div>
+   {% endfor %}
+      </div>
+      
+   
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load tags %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block main %}
+<section id="blog" class="pading">
+    <div class="container blog">
+            
+            <div class="row">
+                <aside class="col-md-4">
+                    <div class="widget categories">
+                        <h3>Категории</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="blog_category">
+                                    {% blog_category %}
+                                </ul>
+                            </div>
+                        </div>                     
+                    </div><!--/.categories-->
+                </aside>
+                <!--/.col-md-4-->
+                
+                
+                <div class="col-md-8">
+                    <div class="blog-item">
+                    	{% for object in blog_context %}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 blog-content">
+                                <a href="#"><img class="img-responsive img-blog" src="{{object.image.url}}" alt="" /></a>
+                                <h3><a href="blog-item.html">{{object.name}}</a></h3>
+                                <p>{{object.short_text}}</p>
+                                <a class="btn btn-primary readmore" href="{% url "blog_detail" pk=object.pk %}">Читать полностью <i class="fa fa-angle-right"></i></a>
+                            </div>
+                                
+                            <div class="col-xs-12 col-sm-2 text-center">
+                                <div class="entry-meta">
+                                    <span class="publish_date">{{object.date_post}}</span>
+                                  
+                                    <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                    <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                </div>
+                            </div>
+                        </div> 
+                         {% endfor %}
+                    </div><!--/.blog-item-->
+                    
+                   
+                   
+                        
+                    
+                </div> 
+                 <!--/.col-md-8--> 
+            </div>
+            <!--/.row-->
+
+    </div>
+</section>
+{% endblock %}
+

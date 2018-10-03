@@ -1,0 +1,255 @@
+{% load staticfiles %}
+{% load tags %}
+{% autoescape off %}
+<!doctype html>
+<html>
+<head>
+<meta name="yandex-verification" content="c2ba91a2d3d32c63" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Legion Style</title>
+
+  
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'images/ico/logo3.png' %}" />
+{% block style %}
+
+{% endblock %}
+
+</head>
+
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="centrize">
+    <div class="v-center">
+      <div id="mask"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+    </div>
+  </div>
+</div>
+<!--/#Loader --> 
+
+<!-- Back-To-Top -->
+<div class="container"> <a href="#" class="back-to-top text-center" style="display: inline;"> <i class="fa fa-angle-up"></i> </a> </div>
+<!--/#Back-To-Top--> 
+
+<!--header-->
+<header id="header">
+  <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-xs-12">
+          <div class="top-number">
+            <p><i class="fa fa-phone-square"></i> {% contact_phone 1 %}</p>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-xs-12">
+          <div class="top-email">
+            <p><i class="fa fa-envelope"></i> <a href="#"> {% contact_mail 1 %}</a></p>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-xs-12">
+          <div class="top-number">
+            <p><i class="fa fa-map-marker"></i> {% contact_address 1 %}</p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-xs-12">
+          <div class="social">
+            <ul class="social-share">
+              <li><a href="https://vk.com/legionstyle55"><i class="fa fa-vk"></i></a></li>
+             
+            </ul>
+            <div class="search">
+              <form class="form">
+                <input type="text" class="search-form" autocomplete="off" placeholder="Поиск">
+                <input class="searchsubmit" type="submit" id="searchsubmit" ><i class="fa fa-search"></i>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/#top-bar--> 
+  <!--nav-->
+  <div class="navigation" id="navigation" data-spy="affix" data-offset-top="2">
+    <nav class="navbar navbar-inverse" id="fixed-collapse-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="{% url 'main' %}"><img src="{% static "images/logo5.png" %}" alt="logo"></a> </div>
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class=""> <a href="{% url 'main' %}">ДОМАШНЯЯ </a></li>
+            <li><a href="{% url 'about' %}">О КОМПАНИИ</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">УСЛУГИ <i class="fa fa-angle-down"></i></a>
+              <ul class="dropdown-menu">
+              	{% service_tag %}
+           
+              </ul>
+            </li>
+            
+            <li class="dropdown"> <a href="{% url 'blog' %}"> БЛОГ  </a>
+            </li>
+            <li>
+            <li class="dropdown"> <a href="{% url 'contact' %}"> КОНТАКТЫ </a>
+            
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--/.container--> 
+    </nav>
+  </div>
+  <!--/#nav--> 
+  
+</header>
+<!--/#header--> 
+{% block main %}
+{% endblock %}
+
+
+<!-- Footer -->
+<footer id="footer-top">
+  <div class="container">
+    <div class="row  wow fadeInDown">
+      <div class="col-md-4 col-sm-4 col-xs-12 footer-box">
+        <h3>Время работы</h3>
+        <ul class="news-letter">
+          <li>
+            <p class="first-time">Ежедневно<i class="fa fa-clock-o"><span>09.00 - 21.00</span></i></p>
+          </li>
+          <li>
+            <p class="first-time">Без обеда</p>
+          </li>
+          <li>
+            <p class="first-time">Без выходных</p>
+          </li>
+          <li>
+            <input type="search" placeholder="E-mail" class="subscibe">
+            <input type="submit" class="subbutton" value="Подписаться">
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-12 footer-box">
+        
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 footer-box">
+        <h3>НАШИ УСЛУГИ</h3>
+        <ul class="links">
+          {% service_tag %}
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-12 footer-box">
+        <div class="unborder"><img  src="{% static 'images/logo5.jpg'%}" class="img-responsive" alt="logo"></div>
+        <ul class="adress">
+          <li>
+            <h4>Адрес</h4>
+          </li>
+          <li><i class="fa fa-map-marker"></i>{% contact_address 1 %}</li>
+          <li>
+            <h4>Телефон</h4>
+          </li>
+          <li><i class="fa fa-phone-square"></i>{% contact_phone 1 %}</li>
+          <li>
+            <h4>Email</h4>
+          </li>
+          <li><i class="fa fa-envelope-o"></i> <a href="#">{% contact_mail 1 %}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright dark">
+  <div class="container">
+    <div class="row wow fadeInDown">
+      <div class="col-sm-12 text-center">
+        <p>&copy; 2018 <a target="_blank" href="#" >Legion Style</a>. 
+          Все права защищены.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+<script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/viedobox_video.js' %}"></script>
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/hoverintent.min.js' %}"></script>
+<script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/jquery.lazyload.js' %}"></script>
+<script>
+$(function() {
+    $("img.lazy").lazyload();
+});
+</script>
+
+<script type="text/javascript">
+	$(function () {
+		
+		var filterList = {
+		
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#portfoliolist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#portfoliolist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		// Run the show!
+		filterList.init();
+		
+		
+	});
+	</script>
+	<script>
+	[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+  img.setAttribute('src', img.getAttribute('data-src'));
+  img.onload = function() {
+ img.removeAttribute('data-src');
+  };
+});
+	</script>
+</body>
+</html>
+{% endautoescape %}
