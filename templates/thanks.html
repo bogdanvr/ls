@@ -4,3 +4,61 @@
 {% block style %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 {% endblock %}
+
+{% block main %}
+<section class="heading top-padding">
+<div class="container">
+<div class="col-md-12 trip-heading text-center jw-animate-gen noOpacity" data-gen-offset="80%" data-gen="fadeInDown">
+    <h2 class="heading-margin">Как нас найти?</h2>
+    <p class="text-margin"> 
+    </p>
+</div>
+ 
+</div>
+</section>
+<div id="contact-info-2">
+
+<div class="container">
+<div class="row contact-us-section">
+<div class="col-md-9 col-sm-9">
+ <p style="color:red;font-size:50px;"> Ваше сообщение успешно отправлено! </p>
+</div>
+<div class="col-md-3 col-sm-3 contact-detail jw-animate-gen noOpacity" data-gen-offset="75%" data-gen="fadeInRight">
+    <div class="col-md-12 col-sm-12 contact-text">
+      <div class="col-md-2 col-sm-2 text-center contact-detail-icon">
+        <i class="fa fa-map-marker"></i>
+      </div>            
+      <p class="col-md-10 col-sm-10 contact-detail-text">               
+       {% contact_address 1 %}
+      </p>
+    </div>
+    <div class="col-md-12 col-sm-12 contact-text">
+      <div class="col-md-2 col-sm-2 text-center contact-detail-icon">
+        <i class="fa fa-envelope-o"></i>
+      </div>            
+      <p class="col-md-10 col-sm-10 contact-detail-text">                
+       <a href="#">{% contact_mail 1 %}</a>
+     
+      </p>
+    </div>
+    <div class="col-md-12 col-sm-12 contact-text">
+      <div class="col-md-2 col-sm-2 text-center contact-detail-icon">
+        <i class="fa fa-phone"></i>
+      </div>            
+      <p class="col-md-10 col-sm-10 contact-detail-text">               
+       <a href="#">{% contact_phone 1 %}</a>
+       
+      </p>
+    </div>
+ </div>
+</div>
+  </div>
+</div>
+<div class="gmap-area-2">
+
+            <div class="gmap-2">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.450235830775!2d73.33585711502361!3d54.94030207022766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43ab0245e12e2127%3A0x865a9a3953a2363a!2z0JrQu9GD0LHQvdGL0Lkg0L_QtdGALiwgNCwg0J7QvNGB0LosINCe0LzRgdC60LDRjyDQvtCx0LsuLCA2NDQwMTU!5e0!3m2!1sru!2sru!4v1525610710872" width="100%" height="443" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+<!--/#gmap_area -->
+
+
+{% endblock %}

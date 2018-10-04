@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c0hgh&p@mjq7m)6id(p@bg*hp7^o(9q7-q9f@hy-rt4%)v$_zv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -91,13 +91,14 @@ DATABASES = {
         'PASSWORD': 'bgd@2517',
     }
 }
+"""
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/home/c/cn68880/myenv/public_html/django_cache',
     }
 }
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -150,6 +151,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mail.ru' 
 EMAIL_HOST_USER = 'v-bogdan-v@mail.ru'
 EMAIL_HOST_PASSWORD = '318320'
+FILE_PATH_FIELD_DIRECTORY = MEDIA_ROOT
 
 CKEDITOR_CONFIGS = {
 'Awesome': {

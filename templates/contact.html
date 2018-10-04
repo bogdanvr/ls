@@ -28,22 +28,30 @@
 <div class="container">
 <div class="row contact-us-section">
 <div class="col-md-9 col-sm-9">
-          <form method="post" class="jw-animate-gen noOpacity" data-gen-offset="75%" data-gen="fadeInLeft">
+	
+           <form action="/contacts/" method="post" class="jw-animate-gen noOpacity" data-gen-offset="75%" data-gen="fadeInLeft">{% csrf_token %}
     <div class="form-group">
-      <label class="sr-only" for="inputName">Имя</label>
-      <input type="text" name="userName" value="" class="form-control" id="inputName" placeholder="Имя" required>
+    	<label class="sm-only" for="inputName">Тема</label>
+    	{{form.subject.errors}}
+    	{{form.subject}}
     </div>
     <div class="form-group">
-      <label class="sr-only" for="inputEmail">Email</label>
-      <input type="email" name="email" value="" class="form-control" id="inputEmail" placeholder="Email" required>
+    	<label class="sm-only" for="inputName">E-mail</label>
+    	{{form.sender.errors}}
+    	{{form.sender}}
     </div>
     <div class="form-group">
-     <textarea class="form-control" rows="3" name="userMassege" placeholder="Сообщение"  required></textarea>
+    	<label class="sm-only" for="inputName">Сообщение</label>
+    	{{form.message.errors}}
+    	{{form.message}}
     </div>
-    <button type="submit" class="btn btn-default btn-contact-usNow">      Отправить
+    
+     <button type="submit" class="btn btn-default btn-contact-usNow">      Отправить
     </button>
-  </form>
-</div>
+    </form>
+  
+  </div>
+
 <div class="col-md-3 col-sm-3 contact-detail jw-animate-gen noOpacity" data-gen-offset="75%" data-gen="fadeInRight">
     <div class="col-md-12 col-sm-12 contact-text">
       <div class="col-md-2 col-sm-2 text-center contact-detail-icon">
@@ -59,8 +67,7 @@
       </div>            
       <p class="col-md-10 col-sm-10 contact-detail-text">                
        <a href="#">{% contact_mail 1 %}</a>
-       <br>
-       <a href="#">{% contact_mail 1 %}</a>
+     
       </p>
     </div>
     <div class="col-md-12 col-sm-12 contact-text">
@@ -69,8 +76,7 @@
       </div>            
       <p class="col-md-10 col-sm-10 contact-detail-text">               
        <a href="#">{% contact_phone 1 %}</a>
-       <br>
-   <a href="#">{% contact_phone 1 %}</a>
+       
       </p>
     </div>
  </div>

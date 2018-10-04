@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from ls.views import Main, servicedetail
-from contact.views import contact
 from contact.views import ThanksView
 from about.views import AboutView
 from blog.views import BlogView
 from blog.views import BlogDetailView
 from about import views
+from contact.views import contactView
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -30,15 +30,16 @@ from application import settings
 
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Main.as_view(), name="main"),
-    url(r'^contacts/$', contact, name="contact"),
+    url(r'^contacts/$', contactView, name="contact"),
     url(r'^about/$', AboutView.as_view(), name="about"),
     url(r'^thanks/$', ThanksView.as_view(), name = 'thanks'),
     url(r'^blog/$', BlogView.as_view(), name="blog"),
     url(r'^servicedetail/(?P<service_id>\d+)/$', servicedetail, name = 'servicedetail'),
     url(r'^(?P<pk>\d+)/$', BlogDetailView.as_view(), name = 'blog_detail'),
-    
+     
     
 ]
